@@ -98,7 +98,7 @@ async def create_variable(parent, nodeid, bname, val, varianttype=None, datatype
     or idx, name, value, [variant type], [data type]
     """
     nodeid, qname = _parse_nodeid_qname(nodeid, bname)
-    var = ua.Variant(val, varianttype)
+    var = val if isinstance(val, ua.Variant) else ua.Variant(val, varianttype)
     if datatype and isinstance(datatype, int):
         datatype = ua.NodeId(datatype, 0)
     if datatype and not isinstance(datatype, ua.NodeId):
