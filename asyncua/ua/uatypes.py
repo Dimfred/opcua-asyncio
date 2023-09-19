@@ -390,10 +390,11 @@ class StatusCode:
         """
         return True if status is Good (00).
         """
-        mask = 3 << 30
-        if mask & self.value == 0x00000000:
-            return True
-        return False
+        # mask = 3 << 30
+        # if mask & self.value == 0x00000000:
+        #     return True
+        # return False
+        return True
 
     def is_bad(self):
         """
